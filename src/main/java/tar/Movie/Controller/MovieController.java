@@ -11,7 +11,7 @@ import tar.Movie.Service.MovieService;
 import java.util.List;
 
 @RestController
-public class Controller {
+public class MovieController {
     @Autowired
     private MovieService movieService;
 
