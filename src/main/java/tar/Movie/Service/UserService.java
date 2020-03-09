@@ -1,6 +1,7 @@
 package tar.Movie.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import tar.Movie.Models.User;
 import tar.Movie.Repository.UserRepository;
@@ -27,5 +28,14 @@ public class UserService {
         }
         user.setId(id);
         return Optional.of(userRepository.save(user));
+    }
+
+    public boolean deleteUser(String id) {
+        try {
+            userRepository.deleteById(id);
+            return true;
+        } catch (EmptyResultDataAccessException e) {
+            return false;
+        }
     }
 }

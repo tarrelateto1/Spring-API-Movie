@@ -33,4 +33,12 @@ public class UserController {
         Optional<?> user = userService.updateUser(id,body);
         return ResponseEntity.ok(user);
     }
+
+    @DeleteMapping("/deleteUser/{id}")
+    public ResponseEntity<?> deleteCustomer(@PathVariable String id) {
+        if(!userService.deleteUser(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().build();
+    }
 }
