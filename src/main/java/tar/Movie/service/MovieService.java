@@ -1,9 +1,9 @@
-package tar.Movie.Service;
+package tar.Movie.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tar.Movie.Models.Movie;
-import tar.Movie.Repository.MovieRepository;
+import tar.Movie.models.Movie;
+import tar.Movie.repository.MovieRepository;
 
 import java.util.List;
 

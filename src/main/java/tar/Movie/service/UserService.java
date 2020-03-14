@@ -1,10 +1,10 @@
-package tar.Movie.Service;
+package tar.Movie.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import tar.Movie.Models.User;
-import tar.Movie.Repository.UserRepository;
+import tar.Movie.models.User;
+import tar.Movie.repository.UserRepository;
 
 import java.util.Optional;
 

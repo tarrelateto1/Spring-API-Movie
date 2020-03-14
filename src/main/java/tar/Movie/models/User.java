@@ -1,4 +1,4 @@
-package tar.Movie.Models;
+package tar.Movie.models;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

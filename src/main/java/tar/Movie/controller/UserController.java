@@ -1,17 +1,17 @@
-package tar.Movie.Controller;
+package tar.Movie.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tar.Movie.Models.User;
-import tar.Movie.Service.UserService;
+import tar.Movie.models.User;
+import tar.Movie.service.UserService;
 
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/user")
-public class UserController {
+public class UserController extends BaseController{
 
     @Autowired
     UserService userService;

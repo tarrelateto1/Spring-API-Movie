@@ -1,8 +1,7 @@
-package tar.Movie.Repository;
+package tar.Movie.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.CrudRepository;
-import tar.Movie.Models.User;
+import tar.Movie.models.User;
 
 public interface UserRepository extends MongoRepository<User,String> {
     public User findByName(String name);

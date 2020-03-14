@@ -1,7 +1,7 @@
-package tar.Movie.Repository;
+package tar.Movie.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import tar.Movie.Models.Movie;
+import tar.Movie.models.Movie;
 
 
 public interface MovieRepository extends MongoRepository<Movie,String> {
