@@ -24,4 +24,12 @@ public class BaseController {
 
         return new ResponseEntity<ResultModel>(resultModel,HttpStatus.OK);
     }
+    public ResponseEntity<ResultModel> getResultSuccess(Object result,HttpStatus httpStatus){
+        ResultModel resultModel = ResultModel.builder().build();
+
+        resultModel.setMessage(StatusMessage.MESSAGE_SUCCESS);
+        resultModel.setResult(result);
+
+        return new ResponseEntity<ResultModel>(resultModel,httpStatus);
+    }
 }

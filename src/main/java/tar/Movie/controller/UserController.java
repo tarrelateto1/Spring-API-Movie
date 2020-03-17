@@ -4,41 +4,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tar.Movie.models.ResultModel;
 import tar.Movie.models.User;
 import tar.Movie.service.UserService;
 
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1")
 public class UserController extends BaseController{
 
     @Autowired
     UserService userService;
 
-    @PostMapping("/createuser")
-    public ResponseEntity<User> postUser(@RequestBody User body){
+    @GetMapping("/user")
+    public ResponseEntity<ResultModel> getAllData(){
+        return getResultSuccess(userService.getUsers());
+    }
+
+    @PostMapping("/user")
+    public ResponseEntity<ResultModel> postUser(@RequestBody User body){
         User user = userService.createUser(body);
-        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+        return getResultSuccess(user,HttpStatus.CREATED);
     }
 
-    @GetMapping("/getName/{name}")
-    public ResponseEntity<User> getName(@PathVariable String name){
-        User user = userService.findName(name);
-        return ResponseEntity.status(HttpStatus.OK).body(user);
+    @GetMapping("/user/{id}")
+    public ResponseEntity<ResultModel> getName(@PathVariable String id){
+        Optional<User> user = userService.findById(id);
+        return getResultSuccess(user);
     }
 
-    @PutMapping("/updateUser/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable String id,@RequestBody User body){
+    @PutMapping("/user/{id}")
+    public ResponseEntity<ResultModel> updateUser(@PathVariable String id,@RequestBody User body){
         Optional<?> user = userService.updateUser(id,body);
-        return ResponseEntity.ok(user);
+        return getResultSuccess(user,HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteUser/{id}")
+    @DeleteMapping("/user/{id}")
     public ResponseEntity<?> deleteCustomer(@PathVariable String id) {
         if(!userService.deleteUser(id)) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok().build();
+        return getResultSuccess();
     }
 }
