@@ -9,14 +9,14 @@ import tar.Movie.models.ResultModel;
 import tar.Movie.service.MovieService;
 
 @RestController
-@RequestMapping("/api/v1/movie")
+@RequestMapping("/api/v1/")
 public class MovieController extends BaseController{
     @Autowired
     private MovieService movieService;
 
 
 
-    @GetMapping("/getAllData")
+    @GetMapping("/movie")
     public ResponseEntity<ResultModel> getData(){
         return getResultSuccess(movieService.getMovies());
     }
