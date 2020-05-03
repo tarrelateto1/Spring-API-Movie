@@ -1,16 +1,17 @@
 package tar.Movie.controller;
 
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import tar.Movie.models.ResultModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
-@Controller
-public class ResponseErrorController implements org.springframework.boot.web.servlet.error.ErrorController {
+@ControllerAdvice
+public class ResponseErrorController implements ErrorController {
 
     @Override
     public String getErrorPath() {
